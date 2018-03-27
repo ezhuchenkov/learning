@@ -12,13 +12,12 @@ public class SquareEquation {
             if (b == 0) {
                 if (c == 0) {
                     System.out.println("Equation has infinity solutions");
-                    double x = (double) -c / b;
                 } else {
                     System.out.println("Equation has no solution");
                 }
             } else {
                 System.out.println("Simple Equation:");
-                double x = (double) -c / b;
+                double x = ((double) -c) / b;
                 System.out.println("x=" + x);
             }
         } else if (b == 0) {
@@ -26,8 +25,8 @@ public class SquareEquation {
                 System.out.println("x=0");
             } else {
                 System.out.println("Incomplete square equation:");
-                double xl = (double) Math.sqrt(c / a);
-                double x2 = (double) -Math.sqrt(c / a);
+                double xl = Math.sqrt(c / a);
+                double x2 = -Math.sqrt(c / a);
                 System.out.println("x1=" + xl);
                 System.out.println("x2=" + x2);
                 int p1 = (int) ((a * xl * xl) + (b * xl) + c);
