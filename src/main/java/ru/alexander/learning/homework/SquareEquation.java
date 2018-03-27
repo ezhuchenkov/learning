@@ -30,8 +30,8 @@ public class SquareEquation {
                 double x2 = (double) -Math.sqrt(c / a);
                 System.out.println("x1=" + xl);
                 System.out.println("x2=" + x2);
-                int p1 = (int) ((a * Math.pow(xl, 2)) + (b * xl) + c);
-                int p2 = (int) ((a * Math.pow(x2, 2)) + (b * x2) + c);
+                int p1 = (int) ((a *xl*xl) + (b * xl) + c);
+                int p2 = (int) ((a *x2*x2) + (b * x2) + c);
                 System.out.println("Checking x1: " + a + "*" + xl + "^2+" + b + "*" + xl + c + "=" + p1);
                 System.out.println("Checking x2: " + a + "*" + x2 + "^2+" + b + "*" + x2 + c + "=" + p2);
             }
@@ -47,8 +47,8 @@ public class SquareEquation {
                 System.out.println("The equation is solved, the discriminant is greater than 0, the solutions are: ");
                 System.out.println("x1 = " + x1);
                 System.out.println("x2 = " + x2);
-                int p1 = (int) ((a * Math.pow(x1, 2)) + (b * x1) + c);
-                int p2 = (int) (a * Math.pow(x2, 2) + b * x2 + c);
+                int p1 = (int) ((a *x1*x1) + (b * x1) + c);
+                int p2 = (int) ((a *x2*x2) + (b * x2) + c);
                 System.out.println("Checking x1: " + a + "*" + x1 + "^2+" + b + "*" + x1 + "+" + c + "=" + p1);
                 System.out.println("Checking x2: " + a + "*" + x2 + "^2+" + b + "*" + x2 + "+" + c + "=" + p2);
 
@@ -56,7 +56,7 @@ public class SquareEquation {
                 x1 = (-b + sqrt) / (2 * a);
                 System.out.println("The equation is solved, the discriminant is equal to 0, the solution is: ");
                 System.out.println("x = " + x1);
-                int p1 = (int) ((a * Math.pow(x1, 2)) + (b * x1) + c);
+                int p1 = (int) ((a *x1*x1) + (b * x1) + c);
                 System.out.println("Checking: " + a + "*" + x1 + "^2+" + b + "*" + x1 + "+" + c + "=" + p1);
 
             } else

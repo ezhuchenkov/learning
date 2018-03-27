@@ -16,13 +16,18 @@ public class Conditions {
 
         switch (option) {
             case -1:
-            case 0: System.out.println("exit"); break;
-            case 1: System.out.println("print"); break;
-            case 2: System.out.println("save"); break;
-            default: System.out.println("unknown command");
+            case 0:
+                System.out.println("exit");
+                break;
+            case 1:
+                System.out.println("print");
+                break;
+            case 2:
+                System.out.println("save");
+                break;
+            default:
+                System.out.println("unknown command");
         }
-
-
 
 
     }
