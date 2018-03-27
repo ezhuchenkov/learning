@@ -3,8 +3,8 @@ package ru.alexander.learning.homework;
 public class Fibonacci {
 
     public static void main(String[] args) {
-        System.out.println("Метод итерации. Вывод числа, соответствующего задонному n:  " + fibIter(4));
-        System.out.println("Метод рекурсии. Вывод числа, соответствующего задонному n:  " + fibRec(4));
+        System.out.println("Метод итерации. Вывод числа, соответствующего задонному n:  " + fibIter(10));
+        System.out.println("Метод рекурсии. Вывод числа, соответствующего задонному n:  " + fibRec(10));
     }
 
     static int fibIter(long n) {
@@ -22,17 +22,31 @@ public class Fibonacci {
         return n2;
     }
 
+
     static int fibRec(int n) {
-        if (n == 1 || n == 2) {
-            return 1;
+        return fibHelp(1, 1, n - 2);
+    }
+
+    static int fibHelp(int a, int b, int left) {
+        if (left == 0) {
+            return b;
         } else {
-//            System.out.println("n="+n);
-//            int q=fibRec(n-1)+ fibRec(n-2);
-//            System.out.print("Пытаемся получить значения q="+q+" ");
-//            System.out.println();
-            return fibRec(n - 1) + fibRec(n - 2);
+            return fibHelp(b, a + b, left - 1);
         }
     }
+
+
+//    static int fibRec(int n) {
+//        if (n == 1 || n == 2) {
+//            return 1;
+//        } else {
+////            System.out.println("n="+n);
+////            int q=fibRec(n-1)+ fibRec(n-2);
+////            System.out.print("Пытаемся получить значения q="+q+" ");
+////            System.out.println();
+//            return fibRec(n - 1) + fibRec(n - 2);
+//        }
+//    }
 
 
 }
