@@ -13,7 +13,7 @@ public class SieveOfEratosthenes {
                     }
 
                 }
-                System.out.println(elem);
+                System.out.print(elem+" ");
             }
         }
     }
