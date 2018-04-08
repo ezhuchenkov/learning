@@ -3,10 +3,27 @@ package ru.alexander.learning.homework;
 public class SquareEquation {
 
     public static void main(String[] args) {
-        solveAndPrint(2, 5, 2);
+        solveAndPrint(13, 0, 2);
+
+        //b ^ false = b
+        //b ^ b = false
+        //b ^ a ^ b = (b ^ b) ^ a = false ^ a = a
+
+        //0101 ^ 0000 = 0101
+        //1010 ^ 1010 = 0000
+
+        /*
+         *    x y   x^y
+         *    0 0    0
+         *    0 1    1
+         *    1 0    1
+         *    1 1    0
+         *
+         * */
     }
 
     static void solveAndPrint(int a, int b, int c) {
+
 
         if (a == 0) {
             if (b == 0) {
@@ -25,24 +42,29 @@ public class SquareEquation {
                 System.out.println("x=0");
             } else {
                 System.out.println("Incomplete square equation:");
-                double xl = Math.sqrt(c / a);
-                double x2 = -Math.sqrt(c / a);
-                System.out.println("x1=" + xl);
-                System.out.println("x2=" + x2);
-                int p1 = (int) ((a * xl * xl) + (b * xl) + c);
-                int p2 = (int) ((a * x2 * x2) + (b * x2) + c);
-                System.out.println("Checking x1: " + a + "*" + xl + "^2+" + b + "*" + xl + c + "=" + p1);
-                System.out.println("Checking x2: " + a + "*" + x2 + "^2+" + b + "*" + x2 + c + "=" + p2);
+                /*a=13,b=0,c=2, q=0????*/
+//                double q=-c/a;
+//                System.out.println(q);
+                if (-c / a >= 0) {
+                    double xl = (double) Math.sqrt(-c / a);
+                    double x2 = (double) -Math.sqrt(-c / a);
+                    System.out.println("x1=" + xl);
+                    System.out.println("x2=" + x2);
+                    int p1 = (int) ((a * xl * xl) + (b * xl) + c);
+                    int p2 = (int) ((a * x2 * x2) + (b * x2) + c);
+                    System.out.println("Checking x1: " + a + " * " + xl + "^2 + " + b + " * " + xl + " + " + c + "=" + p1);
+                    System.out.println("Checking x2: " + a + " * " + x2 + "^2 + " + b + " * " + x2 + " + " + c + "=" + p2);
+                } else {
+                    System.out.println("Equation has no solution");
+                }
             }
         } else {
             System.out.println("Square Equation:");
-            double x1;
-            double x2;
             double d = Math.pow(b, 2) - (4 * a * c);
             double sqrt = Math.sqrt(d);
             if (d > 0) {
-                x1 = (-b + sqrt) / (2 * a);
-                x2 = (-b - sqrt) / (2 * a);
+                double x1 = (-b + sqrt) / (2 * a);
+                double x2 = (-b - sqrt) / (2 * a);
                 System.out.println("The equation is solved, the discriminant is greater than 0, the solutions are: ");
                 System.out.println("x1 = " + x1);
                 System.out.println("x2 = " + x2);
@@ -52,7 +74,7 @@ public class SquareEquation {
                 System.out.println("Checking x2: " + a + "*" + x2 + "^2+" + b + "*" + x2 + "+" + c + "=" + p2);
 
             } else if (d == 0) {
-                x1 = (-b + sqrt) / (2 * a);
+                double x1 = (-b + sqrt) / (2 * a);
                 System.out.println("The equation is solved, the discriminant is equal to 0, the solution is: ");
                 System.out.println("x = " + x1);
                 int p1 = (int) ((a * x1 * x1) + (b * x1) + c);
