@@ -21,10 +21,14 @@ public class LinkedList {
         current.next = newNode;
     }
 
-    void addToFront(int value) {
+    void addToFront(int value) {  //добавление элемента в начало списка
+        Node newFirstNode = new Node(value);
+        if (first == null) {
+            first = newFirstNode;
+        } else {
+            first.previous = newFirstNode;
 
-        //todo
-
+        }
     }
 
     int get(int index) {
@@ -42,9 +46,23 @@ public class LinkedList {
         return current.value;
     }
 
-    int indexOf(int value) {
-        //todo вернуть индекс первого встреченного элемента со значением value, иначе -1
-        return 0;
+    int indexOf(int value) {  // вернуть индекс первого встреченного элемента со значением value, иначе -1
+        if (first == null) {
+            return -1;
+        }
+        Node nodeIndexOf = first;
+        int index = 0;
+        while (nodeIndexOf.next != null) {
+            if (nodeIndexOf.value == value) {
+                return index;
+            }
+            nodeIndexOf = nodeIndexOf.next;
+            ++index;
+        }
+        if (nodeIndexOf.next == null) {
+            return -1;
+        } else
+            return index; //меня вынудил компилятор, не совсем понимаю, я же возвращаю значение в 54 строке
     }
 
     void set(int index, int value) {
@@ -58,12 +76,13 @@ public class LinkedList {
         list.add(5);
         list.add(2);
         list.add(1);
+        list.addToFront(6);
         System.out.println(list.get(0)); //1
-        System.out.println(list.get(3)); //2
-        System.out.println(list.get(5)); //2
-        list.indexOf(1); //0
-        list.indexOf(5); //2
-        list.indexOf(6); //-1
+        //System.out.println(list.get(3)); //2
+        //System.out.println(list.get(5)); //2
+        System.out.println(list.indexOf(1));
+        System.out.println(list.indexOf(6));
+        //list.indexOf(6); //-1
     }
 
 }
