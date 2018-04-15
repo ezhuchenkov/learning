@@ -22,12 +22,13 @@ public class LinkedList {
     }
 
     void addToFront(int value) {  //добавление элемента в начало списка
+        //По дебагу всё проходит, но результат не тот, что ожидаем. Либо неправильно читаю дебаг, либо что-то не понимаю
         Node newFirstNode = new Node(value);
         if (first == null) {
             first = newFirstNode;
         } else {
-            first.previous = newFirstNode;
-
+            newFirstNode.next = first;
+            first = newFirstNode;
         }
     }
 
@@ -47,41 +48,99 @@ public class LinkedList {
     }
 
     int indexOf(int value) {  // вернуть индекс первого встреченного элемента со значением value, иначе -1
-        if (first == null) {
-            return -1;
-        }
-        Node nodeIndexOf = first;
+//        if (first == null) {
+//            return -1;
+//        }
+        Node current = first;
         int index = 0;
-        while (nodeIndexOf.next != null) {
-            if (nodeIndexOf.value == value) {
+        /*
+        if (current.value == value) {
+            return index;
+        }
+        while (current.next != null) {
+            if (current.value == value) {
                 return index;
             }
-            nodeIndexOf = nodeIndexOf.next;
+            current = current.next;
             ++index;
         }
-        if (nodeIndexOf.next == null) {
-            return -1;
-        } else
-            return index; //меня вынудил компилятор, не совсем понимаю, я же возвращаю значение в 54 строке
+        */
+
+        while (current != null) {
+            if (current.value == value) {
+                return index;
+            }
+            index++;
+            current = current.next;
+        }
+
+        return -1;
     }
 
-    void set(int index, int value) {
-//todo
+
+    boolean set(int index, int value) {
+        if (first == null) {
+            return false;
+        }
+        Node newNode = new Node(value);
+        if (index == 0) {
+            newNode.next = first.next;
+            first = newNode;
+            return true;
+        }
+        Node prev = first;
+        Node current = first.next;
+        int currentIndex = 1;
+        while (current != null) {
+            if (currentIndex == index) {
+                prev.next = newNode;
+                newNode.next = current.next;
+                return true;
+            }
+            currentIndex++;
+            prev = current;
+            current = current.next;
+        }
+        return false;
+
+
+        /*
+        Node current = first;
+        for (int i = 0; i < index; i++) {
+            if (current.next != null) {
+                current = current.next;
+            } else {
+                current.value = value;
+                break;
+            }
+        }
+        current.value = value;
+        */
+
     }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.add(1);
-        list.add(4);
-        list.add(5);
-        list.add(2);
-        list.add(1);
-        list.addToFront(6);
-        System.out.println(list.get(0)); //1
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+        System.out.println(list.indexOf(1));
+        System.out.println(list.indexOf(2));
+        System.out.println(list.indexOf(3));
+        System.out.println(list.indexOf(10));
+//        System.out.println(list.set(4, 5));
+        //list.add(4);
+        //list.add(5);
+        //list.add(2);
+        //list.add(1);
+//        list.set(3, 6);
+//        list.addToFront(7);
+//        System.out.println(list.get(0)); //1
+//        System.out.println(list.get(3)); //1
         //System.out.println(list.get(3)); //2
         //System.out.println(list.get(5)); //2
-        System.out.println(list.indexOf(1));
-        System.out.println(list.indexOf(6));
+        //System.out.println(list.indexOf(0));
+//        System.out.println(list.indexOf(7));
         //list.indexOf(6); //-1
     }
 

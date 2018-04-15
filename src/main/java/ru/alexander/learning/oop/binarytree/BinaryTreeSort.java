@@ -25,7 +25,7 @@ public class BinaryTreeSort {
 
     public static void main(String[] args) {
         int[] arr = {5, 3, 1, 8, 4, 2, 9, 7, 9};
-        sortAndCollect(arr);
+        int[] sorted = sortAndCollect(arr);
     }
 
     static int[] sortAndCollect(int[] arr) {
@@ -40,6 +40,18 @@ public class BinaryTreeSort {
         int[] result = new int[arr.length];
         collect(root, 0, result);
         return result;
+    }
+
+    static int collect(Node root, int index, int[] arr) {
+        if (root.left != null) {
+            index = collect(root.left, index, arr);
+        }
+        arr[index] = root.value;
+        index++;
+        if (root.right != null) {
+            index = collect(root.right, index, arr);
+        }
+        return index;
     }
 
     static void addElement(Node root, Node newElement) {
@@ -68,9 +80,5 @@ public class BinaryTreeSort {
         }
     }
 
-    static int collect(Node root, int index, int[] arr) {
-        //todo
-        return 0;
-    }
 
 }
