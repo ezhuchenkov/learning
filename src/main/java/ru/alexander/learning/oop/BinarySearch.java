@@ -22,16 +22,17 @@ public class BinarySearch {
     }
 
     static int indexOf(int[] arr, int value, int left, int right) {
-        while (left<=right){
-        int mid = (right + left) / 2;
-         if (value > arr[mid]) {
-            return indexOf( arr,value, mid +1,right);
-        } else if(value < arr[mid]) {
-            return indexOf( arr, value,left, mid -1);}
-            else {
-             return mid;
-         }
-    }
+        while (left <= right) {
+            int mid = (right + left) / 2;
+            if (value > arr[mid]) {
+                return indexOf(arr, value, mid + 1, right);
+            } else if (value < arr[mid]) {
+                return indexOf(arr, value, left, mid - 1);
+            } else {
+                return mid;
+            }
+        }
         return -1;
 
-}}
+    }
+}
