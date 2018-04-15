@@ -1,5 +1,7 @@
 package ru.alexander.learning.oop;
 
+import java.util.Arrays;
+
 public class BinarySearch {
 
     //1 2 4 4 5 8 9 10 11 16 16 17
@@ -11,7 +13,8 @@ public class BinarySearch {
     //               [    ]
 
     public static void main(String[] args) {
-
+        int arr[] = {1, 2, 4, 4, 5, 8, 9, 10, 11, 16, 16, 17};
+        System.out.println(indexOf(arr, 17));
     }
 
     static int indexOf(int[] arr, int value) {
@@ -19,8 +22,16 @@ public class BinarySearch {
     }
 
     static int indexOf(int[] arr, int value, int left, int right) {
-        //todo recursive
-        return -1;
+        while (left<=right){
+        int mid = (right + left) / 2;
+         if (value > arr[mid]) {
+            return indexOf( arr,value, mid +1,right);
+        } else if(value < arr[mid]) {
+            return indexOf( arr, value,left, mid -1);}
+            else {
+             return mid;
+         }
     }
+        return -1;
 
-}
+}}
