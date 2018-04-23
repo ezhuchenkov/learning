@@ -1,9 +1,8 @@
 package ru.alexander.learning.oop.filters;
 
-public class PositiveFilter extends Filter {
+public class PositiveFilter implements Filter {
 
-    @Override
-    boolean pass(int value) {
+    public boolean pass(int value) {
         return value > 0;
     }
 

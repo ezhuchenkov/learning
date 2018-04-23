@@ -1,7 +1,7 @@
 package ru.alexander.learning.oop.filters;
 
-public abstract class Filter {
+public interface Filter {
 
-    abstract boolean pass(int value);
+    boolean pass(int value);
 
 }

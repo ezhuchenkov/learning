@@ -1,10 +1,10 @@
 package ru.alexander.learning.oop.inheritance;
-
-public class Cat extends Animal {
+//A.m(), B.m() -> A,B - m() ?
+public class Cat extends Animal implements Playable {
 
     int age;
 
-    Cat(String name) {
+    public Cat(String name) {
         super(name);
     }
 
@@ -23,4 +23,7 @@ public class Cat extends Animal {
         System.out.println(animal1.name);
     }
 
+    public void play() {
+        System.out.println("cat plays");
+    }
 }

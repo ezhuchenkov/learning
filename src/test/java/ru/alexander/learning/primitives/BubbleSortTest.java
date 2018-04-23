@@ -18,14 +18,16 @@ public class BubbleSortTest {
     public void testSingleElementArraySort() {
         int[] arr = {7};
         BubbleSort.sort(arr);
+        Assert.assertEquals(7,arr[0]);
         //todo
     }
 
-    @Test
-    public void testEmptyArraySort() {
-        int[] arr = {};
-        BubbleSort.sort(arr);
-        //todo
-    }
+//    @Test
+//    public void testEmptyArraySort() {
+//        int[] arr = {};
+//        BubbleSort.sort(arr);
+//        Assert.
+//        //todo
+//    }
 
 }

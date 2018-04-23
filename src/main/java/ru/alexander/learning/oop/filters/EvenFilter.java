@@ -1,9 +1,8 @@
 package ru.alexander.learning.oop.filters;
 
-public class EvenFilter extends Filter {
+public class EvenFilter implements Filter {
 
-    @Override
-    boolean pass(int value) {
+    public boolean pass(int value) {
         return value % 2 == 0;
     }
 

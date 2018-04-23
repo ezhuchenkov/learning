@@ -1,6 +1,6 @@
 package ru.alexander.learning.oop.filters;
 
-public class FilterChain extends Filter {
+public class FilterChain implements Filter {
 
     final Filter[] filters;
 
@@ -8,8 +8,7 @@ public class FilterChain extends Filter {
         this.filters = filters;
     }
 
-    @Override
-    boolean pass(int value) {
+   public boolean pass(int value) {
         for (Filter filter : filters) {
             if (!filter.pass(value)) {
                 return false;
