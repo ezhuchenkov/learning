@@ -3,7 +3,7 @@ package ru.alexander.learning.homework;
 public class SquareEquation {
 
     public static void main(String[] args) {
-        solveAndPrint(2, 6, 1);
+        solveAndPrint(2, 0, -8);
 
         //b ^ false = b
         //b ^ b = false

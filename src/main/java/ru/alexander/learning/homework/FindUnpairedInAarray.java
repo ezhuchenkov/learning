@@ -3,7 +3,7 @@ package ru.alexander.learning.homework;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class FindUnpairedInAarray {
+public class                                           FindUnpairedInAarray {
 
 
     public static void main(String[] args) {
