@@ -7,7 +7,7 @@ import java.util.List;
 public class FruitExctractor {
 
     public static void main(String[] args) throws SQLException {
-        getFruitNames(10,112);
+        System.out.println(getFruitNames(0, 2).toString());
 
     }
 
