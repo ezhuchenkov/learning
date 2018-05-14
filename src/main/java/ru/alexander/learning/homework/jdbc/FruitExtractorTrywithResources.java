@@ -8,7 +8,7 @@ public class FruitExtractorTrywithResources {
     public static void main(String[] args) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "123");
         conn.setSchema("public");
-        System.out.println(getFruitNames(conn, 10, 9).toString());
+        System.out.println(getFruitNames(conn, 10, 100).toString());
         System.out.println();
         printAllRows(conn);
         conn.close();
