@@ -22,16 +22,9 @@ public class JdbcExtractor {
         LinkedList list = new LinkedList<T>();
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             try (ResultSet rs = ps.executeQuery()) {
-
                 while (rs.next()) {
-                    String name = rs.getString("name");
-                    Integer weight = rs.getInt("weight");
-                    String color = (String) rs.getString("color");
-                    list.add(name);
-                    list.add(weight);
-                    list.add(color);
-
-
+                    T t = mapper.apply(rs);
+                    list.add(t);
                 }
             }
         }

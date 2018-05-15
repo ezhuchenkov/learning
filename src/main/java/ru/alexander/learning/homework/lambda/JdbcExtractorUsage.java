@@ -1,6 +1,7 @@
 package ru.alexander.learning.homework.lambda;
 
 import ru.alexander.learning.homework.lambda.model.Fruit;
+import ru.alexander.learning.homework.lambda.model.Users;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,21 +13,18 @@ public class JdbcExtractorUsage {
     public static void main(String[] args) throws SQLException {
         try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "123")) {
             JdbcExtractor extractor = new JdbcExtractor(conn);
-            List<Fruit> fruits = extractor.loadList("SELECT * FROM fruits", rs -> {
+            List<Users> users = extractor.loadList("SELECT * FROM users", rs -> {
                         try {
-                            return new Fruit(
+                            return new Users(
                                     rs.getString("name"),
-                                    rs.getString("color"),
-                                    rs.getInt("weight")
+                                    rs.getInt("age")
                             );
                         } catch (SQLException e) {
                             throw new RuntimeException(e);
                         }
-
                     }
-
             );
-            System.out.println(fruits.toString());
+            System.out.println(users.toString());
         }
 
     }
