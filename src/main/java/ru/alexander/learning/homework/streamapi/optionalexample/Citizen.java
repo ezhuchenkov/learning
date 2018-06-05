@@ -1,4 +1,4 @@
-package ru.alexander.learning.homework.StreamAPITest.OptionalExmpl;
+package ru.alexander.learning.homework.streamapi.optionalexample;
 
 import java.util.Optional;
 
@@ -33,44 +33,25 @@ Optional.ofNullable -возвращает Optional-объект, а если н�
 Optional.empty — возвращает пустой Optional-объект.
  */
 public class Citizen {
+    public String name;
+    public Address address;
 
-    private Optional<String> name;
-
-    private Optional<String> address;
-
-
-    public Optional<String> getName() {
-        return name;
-    }
-//    public Optional<String> setName() {
-//        this.name = Optional.of(name);
-//    }
-
-
-    public Optional<String> getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = Optional.of(address);
-    }
-
-
-
-    class Address {
-        private Optional<String> street;
-
-        public void setStreet(String street) {
-            this.street = Optional.of(street);
-        }
-
-        public Optional<String> getStreet() {
-            return street;
-        }
+    static class Address {
+        public String street;
     }
 
     public static void main(String[] args) {
-        Citizen citizen=new Citizen();
-        citizen.setAddress("Alex");
+        Citizen citizen = new Citizen();
+        citizen.name = "abc";
+        citizen.address = new Address();
+        citizen.address.street = "pushkinskaya";
+    }
+
+    public static String getSteet(Citizen citizen) {
+        //return citizen.address?.street ?: "undefined"
+        return Optional.ofNullable(citizen.address)
+                .flatMap(a -> Optional.ofNullable(a.street))  //O<O<S>> -> O<S>
+                .map(s -> s.toUpperCase())
+                .orElse("undefined");
     }
 }

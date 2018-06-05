@@ -1,8 +1,6 @@
-package ru.alexander.learning.homework.StreamAPITest;
+package ru.alexander.learning.homework.streamapi;
 
-import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.function.Predicate;
 
 public class FilterPredicate {

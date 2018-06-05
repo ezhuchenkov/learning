@@ -1,4 +1,4 @@
-package ru.alexander.learning.homework.StreamAPITest.FunctionalInterfaces;
+package ru.alexander.learning.homework.streamapi.functional;
 
 import java.util.function.Consumer;
 

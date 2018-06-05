@@ -2,8 +2,8 @@ package ru.alexander.learning.homework.multithreadingTest;
 
 import java.util.Date;
 
-public class MySingleton implements Runnable {
-
+public class MySingleton {
+    static final Object monitor = new Object();
     /*Задача для самостоятельного выполнения: нужно написать thread-safe lazy singleton
 lazy значит что он будет создаваться при первом обращении.
 Нужно чтобы он был thread-safe, т.е. можно было обращаться из нескольких потоков, при этом должно гарантироваться что
@@ -13,20 +13,18 @@ lazy значит что он будет создаваться при перв�
 - уменьшать содержимое критических секций
 */
 
-    private static MySingleton instance;
+    private static volatile MySingleton instance;
 
-    public static synchronized MySingleton getInstance() {
-        if (instance == null) {
-            instance = new MySingleton();
-            System.out.println("1");
-        }else {
-            System.out.println("0");
+    public static MySingleton getInstance() {
+        if (instance != null) {
+            return instance;
+        } else {
+            synchronized (monitor) {
+                if (instance == null) {
+                    instance = new MySingleton();
+                }
+            }
         }
         return instance;
-    }
-
-    @Override
-    public void run() {
-
     }
 }
