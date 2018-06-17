@@ -1,4 +1,4 @@
-package ru.alexander.learning.homework.multithreadingTest;
+package ru.alexander.learning.homework.multithreading;
 
 import java.util.ArrayList;
 import java.util.List;

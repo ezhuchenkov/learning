@@ -1,6 +1,4 @@
-package ru.alexander.learning.homework.multithreadingTest;
-
-import java.util.Date;
+package ru.alexander.learning.homework.multithreading;
 
 public class MySingleton {
     static final Object monitor = new Object();

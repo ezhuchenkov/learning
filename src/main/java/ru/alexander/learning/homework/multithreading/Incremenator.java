@@ -1,4 +1,4 @@
-package ru.alexander.learning.homework.multithreadingTest;
+package ru.alexander.learning.homework.multithreading;
 
 //public class Incremenator extends Thread {
 //    public volatile boolean mIsIncrement = true;

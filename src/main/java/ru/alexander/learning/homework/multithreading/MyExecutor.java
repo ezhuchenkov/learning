@@ -1,4 +1,4 @@
-package ru.alexander.learning.homework.multithreadingTest;
+package ru.alexander.learning.homework.multithreading;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -15,7 +15,7 @@ public class MyExecutor {
         while (i < attempt) {
             try {FileOutputStream fos=new FileOutputStream("C://notes.txt");
                 System.out.println("I found file!");
-            break;}
+                break;}
             catch (FileNotFoundException e) {
                 System.out.println("fail");
                 ++i;
