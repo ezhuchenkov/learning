@@ -12,5 +12,6 @@ public class Json1 {
         String out = new Scanner(new URL("https://www.cbr-xml-daily.ru/daily_json.js").openStream(), "UTF-8").useDelimiter("\\A").next();
         ObjectMapper mapper = new ObjectMapper();
         Money m = mapper.readValue(out,Money.class);
+        System.out.println(m.map.get("AUD").value);
     }
 }
