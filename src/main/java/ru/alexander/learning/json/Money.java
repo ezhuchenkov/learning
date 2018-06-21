@@ -4,17 +4,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Money {
 
     @JsonProperty("Valute")
-    private final List<Valute> valutes;
+   public final Val1 valute;
 
     @JsonCreator
-    public Money(@JsonProperty("Valute") List<Valute> valutes) {
-        this.valutes = valutes;
+    public Money(@JsonProperty("Valute") Val1 valute) {
+        this.valute = valute;
     }
 }
 

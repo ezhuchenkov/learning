@@ -20,10 +20,13 @@ public class Valute {
             @JsonProperty("Value") double value
             ) {
         this.name = name;
-
-
         this.value = value;
 
 
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
