@@ -7,7 +7,7 @@ public class MyClassUsage {
 //        System.out.println(myClass.field);
         MyClass.InnerClass innerClass1 = myClass.new InnerClass();
         MyClass.InnerClass innerClass2 = myClass.new InnerClass();
-//        MyClass.InnerClass innerClass = new MyClass.InnerClass();
+//        User.InnerClass innerClass = new User.InnerClass();
 
         MyClass.NestedClass nestedClass = new MyClass.NestedClass();
     }

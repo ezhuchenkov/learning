@@ -1,19 +1,17 @@
 package ru.alexander.learning.json.currency;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Val1 {
+public class Valute {
 
     @JsonProperty("Value")
-    public  double value;
+    public final double value;
 
     @JsonCreator
-    public double Val1(
-
-            @JsonProperty("Value") double value)
- {
-
-        return value;
-}}
+    public Valute(@JsonProperty("Value") double value) {
+        this.value = value;
+    }
+}

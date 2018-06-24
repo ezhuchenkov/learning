@@ -10,10 +10,10 @@ import java.util.Map;
 public class Money {
 
     @JsonProperty("Valute")
-   public final Map<String,Val1> map;
+   public final Map<String,Valute> map;
 
     @JsonCreator
-    public Money( @JsonProperty("Valute") Map<String, Val1> map) {
+    public Money( @JsonProperty("Valute") Map<String, Valute> map) {
         this.map = map;
 
     }
