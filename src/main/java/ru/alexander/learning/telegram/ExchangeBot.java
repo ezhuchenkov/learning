@@ -48,7 +48,7 @@ public class ExchangeBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "Currency bot";
+        return "Money bot";
     }
 
     @Override
