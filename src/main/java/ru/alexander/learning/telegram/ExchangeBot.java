@@ -7,12 +7,11 @@ import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import ru.alexander.learning.telegram.currency.Json1;
+
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static sun.util.logging.LoggingSupport.log;
 
 public class ExchangeBot extends TelegramLongPollingBot {
 
@@ -25,7 +24,6 @@ public class ExchangeBot extends TelegramLongPollingBot {
             // Set variables
             String user_first_name = update.getMessage().getChat().getFirstName();
             String user_last_name = update.getMessage().getChat().getLastName();
-            String user_username = update.getMessage().getChat().getUserName();
             long user_id = update.getMessage().getChat().getId();
             String message_text = update.getMessage().getText();
             long chat_id = update.getMessage().getChatId();
@@ -45,26 +43,6 @@ public class ExchangeBot extends TelegramLongPollingBot {
                 e.printStackTrace();
             }
         }}
-//        Message message = update.getMessage();
-//        String user_first_name = update.getMessage().getChat().getFirstName();
-//        String user_last_name = update.getMessage().getChat().getLastName();
-//        String user_username = update.getMessage().getChat().getUserName();
-//        long user_id = update.getMessage().getChat().getId();
-//        String message_text = update.getMessage().getText();
-//        chat_id = update.getMessage().getChatId();
-//        String answer = message_text;
-//        if (message != null && message.hasText()) {
-//            if (message.getText().equals("/help")) {
-//                sendMsg(message, "Привет, я Currency bot.");
-//            } else {
-//                try {
-//                    String value = Json1.getValue(message_text);
-//                    sendMsg(message, value);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//              }
-//        }
 
 
 
