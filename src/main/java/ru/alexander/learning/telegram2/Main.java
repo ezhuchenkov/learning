@@ -15,13 +15,16 @@ import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
+
 public class Main {
 
     private static String BOT_NAME = "Currency bot";
     private static String BOT_TOKEN = "591243527:AAEA8b0xY42EvM7iKsMbM-v-mYBLo6x2AMI" /* your bot's token here */;
 
-    private static String PROXY_HOST = "uhagu.tgproxy.me" /* proxy host */;
-    private static Integer PROXY_PORT = 1080 /* proxy port */;
+    private static String PROXY_HOST = "136.243.63.59" /* proxy host */;
+    private static Integer PROXY_PORT = 9090 /* proxy port */;
     private static String PROXY_USER = "telegram" /* proxy user */;
     private static String PROXY_PASSWORD = "telegram" /* proxy password */;
 
@@ -35,17 +38,24 @@ public class Main {
 
             // Set up Http proxy
             DefaultBotOptions botOptions = ApiContext.getInstance(DefaultBotOptions.class);
+//            System.getProperties().put( "socksProxyHost", "host" );
+//            System.getProperties().put( "socksProxyPort", "port" );
+//            Authenticator.setDefault(new Authenticator(){
+//                protected PasswordAuthentication getPasswordAuthentication(){
+//                    return new PasswordAuthentication("username", "password".toCharArray());
+//                }
+//            });
 
-            CredentialsProvider credsProvider = new BasicCredentialsProvider();
-            credsProvider.setCredentials(
-                    new AuthScope(PROXY_HOST, PROXY_PORT),
-                    new UsernamePasswordCredentials(PROXY_USER, PROXY_PASSWORD));
+//            CredentialsProvider credsProvider = new BasicCredentialsProvider();
+//            credsProvider.setCredentials(
+//                    new AuthScope(PROXY_HOST, PROXY_PORT),
+//                    new UsernamePasswordCredentials(PROXY_USER, PROXY_PASSWORD));
 
             HttpHost httpHost = new HttpHost(PROXY_HOST, PROXY_PORT);
 
             RequestConfig requestConfig = RequestConfig.custom().setProxy(httpHost).setAuthenticationEnabled(true).build();
             botOptions.setRequestConfig(requestConfig);
-            botOptions.setCredentialsProvider(credsProvider);
+//            botOptions.setCredentialsProvider(credsProvider);
             botOptions.setHttpProxy(httpHost);
 
             // Register your newly created AbilityBot
