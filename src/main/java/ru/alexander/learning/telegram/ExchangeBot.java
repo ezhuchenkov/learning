@@ -52,6 +52,7 @@ public class ExchangeBot extends TelegramLongPollingBot {
         String message_text = update.getMessage().getText();
         chat_id = update.getMessage().getChatId();
         String answer = message_text;
+        update.getMessage().getDate().toString();
         if (message != null && message.hasText()) {
             if (message.getText().equals("/help")) {
                 sendMsg(message, "Привет, я Currency bot.");
