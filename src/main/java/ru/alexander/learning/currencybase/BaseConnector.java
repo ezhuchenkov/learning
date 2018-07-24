@@ -28,7 +28,7 @@ public class BaseConnector {
                 ps.executeBatch();
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Smth wrong with: " + URL_PAHT, e);
+            throw new RuntimeException("Something wrong with connection or statement", e);
         }
     }
 }

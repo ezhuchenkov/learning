@@ -34,29 +34,8 @@ public class ValueLoader {
         }
     }
 
-
     public Double getValue(String s) {
         double value = getMoney().map.get(s).value;
         return value;
-    }
-
-    public String getNames() {
-        return getMoney().map.keySet().stream()
-                .sorted()
-                .collect(joining(", "));
-    }
-
-    public boolean hasMatch(String s) {
-        return getMoney().map.containsKey(s);
-    }
-
-
-    public String getEachName () {
-        Object[] arr =getMoney().map.keySet().stream().toArray();
-        //String name = null;
-        for (Object name:arr){
-            System.out.println(name);
-                   }
-        return null;
     }
 }
